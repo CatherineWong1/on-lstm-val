@@ -146,8 +146,8 @@ class Evaluate(Callback):
 evaluator = Evaluate()
 
 lm_model.fit_generator(train_data,
-                       steps_per_epoch=100,
-                       epochs=100,
+                       steps_per_epoch=50,
+                       epochs=2,
                        callbacks=[evaluator])
 
 
@@ -157,11 +157,12 @@ lm_f = K.function([x_in], [onlstms[0].distance])
 def build_tree(depth, sen):
     """该函数直接复制自原作者代码
     """
-    assert len(depth) == len(sen)
+    #assert len(depth) == len(sen)
     if len(depth) == 1:
         parse_tree = sen[0]
     else:
         idx_max = np.argmax(depth)
+        print(idx_max)
         parse_tree = []
         if len(sen[:idx_max]) > 0:
             tree0 = build_tree(depth[:idx_max], sen[:idx_max])
@@ -178,15 +179,17 @@ def build_tree(depth, sen):
 
 
 def parse_sent(s):
-    eval_index = []
+    sent_index = []
     sent_list = nltk.sent_tokenize(s)
     sent_list = sent_list[:max_sent_num]
     for i in range(len(sent_list)):
-        eval_index.append(i)
-    eval_index = np.array(eval_index)
+        sent_index.append(i)
+    eval_index = np.array([sent_index])
+    print(eval_index.shape)
     sl = lm_f([eval_index])[0][0][1:]
+    print(sl)
     # 用json.dumps的indent功能，最简单地可视化效果
-    return json.dumps(build_tree(sl, eval_index), indent=4, ensure_ascii=False)
+    return json.dumps(build_tree(sl, sent_index), indent=4, ensure_ascii=False)
 
 
 # 读入测试文件
