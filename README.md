@@ -16,3 +16,8 @@ Tips：
 安装glob2, sentencepiece.运行命令：
 pip install glob2
 pip install sentencepiece
+````
+## Dataset
+* Dataset来源于：CNN/DM，源数据：https://drive.google.com/open?id=1BM9wvnyXx9JvgW2um0Fk9bgQRrx03Tol
+* 由于源数据是pytorch环境可用，因此对源数据进行了轻微处理
+* 下载data.zip()，解压后放置到和代码同一级的目录即可
