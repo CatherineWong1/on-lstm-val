@@ -20,7 +20,7 @@ pip install sentencepiece
 ## Dataset
 * Dataset来源于：CNN/DM，源数据：https://drive.google.com/open?id=1BM9wvnyXx9JvgW2um0Fk9bgQRrx03Tol
 * 由于源数据是pytorch环境可用，因此对源数据进行了轻微处理
-* 下载data.zip()，解压后放置到和代码同一级的目录即可
+* 下载data.zip(https://pan.baidu.com/s/1-x_Y8AkvxKRKSCn3QUqLbQ)，解压后放置到和代码同一级的目录即可
 
 ## 训练次数说明
 1. 由于机器GPU所限制，设置了batch_size为100，若GPU资源丰富，可以将batch_size修改为1000或者10000
