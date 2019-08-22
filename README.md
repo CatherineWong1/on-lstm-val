@@ -11,6 +11,7 @@ Tips：
 如果是用Conda虚拟环境，找到path to your virtual env/lib/python2.7/site-packeges/pyrouge
 将rouge安装完成后的Rouge-1.5.5的文件夹拷贝到上述路径下
 `````
+完成后，将new_hier_model.py中的291行路径修改为上述路径，即path to your virtual env/lib/python2.7/site-packeges/pyrouge
 * 2 其他需安装
 ````
 安装glob2, sentencepiece.运行命令：
