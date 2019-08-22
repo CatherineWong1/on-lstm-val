@@ -11,4 +11,8 @@ Tips：
 如果是用Conda虚拟环境，找到path to your virtual env/lib/python2.7/site-packeges/pyrouge
 将rouge安装完成后的Rouge-1.5.5的文件夹拷贝到上述路径下
 `````
-* 2 其余安装运行requirements.txt即可
+* 2 其他需安装
+````
+安装glob2, sentencepiece.运行命令：
+pip install glob2
+pip install sentencepiece
