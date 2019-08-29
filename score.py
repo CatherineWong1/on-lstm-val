@@ -1,5 +1,5 @@
 # -*- encoding:utf-8 -*-
-
+import json
 import nltk
 import pickle
 import os
@@ -99,7 +99,7 @@ def parse_sent(sent_list):
 
 
 # 预测层级结构并计算rouge分数
-def test():
+def rouge_output():
     test_file = "./data/test_sum.0.pk"
     f = open(test_file, 'rb')
     test_data = pickle.load(f)
@@ -162,7 +162,7 @@ def cal_rouge(tmp_dir):
     :return:
     """
     try:
-        temp_dir = "/root/anaconda2/envs/tf18/lib/python2.7/site-packages/pyrouge"
+        temp_dir = "/home/huqian/anaconda2/envs/on_lstm_env/lib/python2.7/site-packages/pyrouge"
         r = pyrouge.Rouge155(rouge_dir=temp_dir)
         r.model_dir = tmp_dir + "/reference/"
         r.system_dir = tmp_dir + "/candidate/"
@@ -193,5 +193,17 @@ def rouge_results_to_str(results_dict):
     )
 
 
-test()
+def display_tree(input_path):
+    output_path = "./tree_display.json"
+    output_f = open(output_path,'a+')
+    with open(input_path,'r') as f:
+        for line in f.readlines():
+            sent_list = nltk.sent_tokenize(line)
+            res = parse_sent(sent_list)
+            res_diplay = json.dumps(res, indent=4, ensure_ascii=False)
+            print(res_diplay)
+            output_f.write(res_diplay)
 
+
+input_path = "./test.txt"
+display_tree(input_path)
