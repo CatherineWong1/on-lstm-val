@@ -9,6 +9,10 @@ glob2
 * 2 transformer_onlstm.py： 主执行文件
 * 3 on_lstm_keras.py： 模型文件
 
+# Dataset
+* https://drive.google.com/open?id=1BM9wvnyXx9JvgW2um0Fk9bgQRrx03Tol
+* 仅需对数据进行格式转换，转换成.pk格式即可。
+
 # 现存的问题：
 * 1 由于降维的方式写的比较早，这块可以变更为其他方式
 * 2 利用tensorflow的eager function 无法和on_lstm_keras做一个很好的融合，所以这块是最大的问题。
