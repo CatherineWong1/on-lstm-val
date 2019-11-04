@@ -58,6 +58,7 @@ def create_data(data_list, corpus_type, data_path, spm,file_path):
                     sample_dict = dict()
                     for single in item['stepList']:
                         step = single['step']
+                        step = step.lower()
                         step = re.sub(r'[^\x00 -\x7F]', ' ', step)
                         step = step.split('\n')
                        
