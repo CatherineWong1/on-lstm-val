@@ -1,9 +1,4 @@
 # on-lstm-val
-# 运行说明
-## 文件说明
-* 1 on-lstm源码：https://github.com/bojone/on-lstm
-* 2 将 new_hier_model.py放到上述源码的同一根目录下
-
 ## 依赖环境
 * 1 rouge安装参考：https://blog.csdn.net/Hay54/article/details/78744912
 ````
@@ -27,3 +22,17 @@ pip install sentencepiece
 ## 训练次数说明
 1. 由于机器GPU所限制，设置了batch_size为100，若GPU资源丰富，可以将batch_size修改为1000或者10000
 2. 若修改了batch_size，则new_hier_model.py中fit_genenrator函数中的一个参数项：step_per_epoch应对应减小，设置为1000
+
+
+# 运行说明
+## 数据处理
+* 按照process_pdd下面的readme进行处理，即可得到数据集。
+
+## 文件说明
+* 1 on-lstm源码：https://github.com/bojone/on-lstm
+* 2 将 new_hier_model.py放到上述源码的同一根目录下
+
+## 训练说明
+* 将数据处理中的所有数据和new_hier_model.py放置于同一根目录下，并将数据文件夹改名为data
+* python new_hier_model.py即可。
+
