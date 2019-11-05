@@ -225,7 +225,7 @@ def parse_sent(sent_list):
 
 # 预测层级结构并计算rouge分数
 def test():
-    test_file = "./data/test_sum.0.pk"
+    test_file = "./data/test.0.pk"
     f = open(test_file,'rb')
     test_data = pickle.load(f)
     tmp_dir = "./rouge"
